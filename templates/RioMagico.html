@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación Ecosistema</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-image: url('/static/RIO.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #fish-container, #trash-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 10;
+        }
+        #upload-form {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-start;
+        }
+        #file-input {
+            padding: 5px;
+            font-size: 14px;
+        }
+        #upload-button {
+            background-color: #4CAF50;
+        }
+        #upload-button:active {
+            background-color: #45a049;
+        }
+        #process-button {
+            background-color: #FF6347;
+            margin-top: 10px;
+        }
+        #process-button:active {
+            background-color: #e5533d;
+        }
+        #start-button {
+            background-color: #4CAF50;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #start-button:active {
+            background-color: #45a049;
+        }
+        #timer, #ecosystem-status {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 10;
+        }
+        #timer {
+            color: #FF6347;
+        }
+        #ecosystem-status {
+            display: none;
+            color: white;
+        }
+        #restart-button {
+            background-color: #87CEFA;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+        #restart-button:active {
+            background-color: #4682B4;
+        }
+    </style>
+</head>
+<body>
+    <div id="fish-container"></div>
+    <div id="trash-container"></div>
+
+    <!-- Formulario de carga de imágenes -->
+    <div id="upload-form">
+        <input type="file" id="file-input" accept="image/*" multiple />
+        <button id="upload-button" class="button">Subir Imágenes</button>
+    </div>
+
+    <!-- Botones adicionales -->
+    <button id="process-button" class="button" style="position: absolute; top: 90px; left: 20px;">Procesar Imágenes</button>
+    <button id="start-button" class="button">Iniciar</button>
+    <button id="restart-button" class="button">Reiniciar</button>
+    <div id="timer"></div>
+    <div id="ecosystem-status"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
